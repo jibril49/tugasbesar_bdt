@@ -25,3 +25,5 @@ aplikasi yang di butuhkan
 2. Mysql
 3. Visual studio code
 4. code runner (.PHP, .JS, .CSS)
+
+note: simpan website-company-profile folder pada htcdocs folder di direktori "C:\xampp\htdocs" dan buka folder code compiler yang anda gunakan di website-company-profile yang telah anda download

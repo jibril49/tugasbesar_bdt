@@ -5,16 +5,22 @@ ujian akhir semester(uas)
 
 1. buatlah kelompok dengan jumlah maksimum 5 orang.
 2. Buatlah aplikasi Web (PHP) yang terhubung ke database MySQL. di dalam aplikasi harus ada.
+
   a. mekanisme penambahan data, ubah data, lihat data dan hapus data (crud).
+  
   b. harus ada pemanggilan stored procedure, stored function, view dan trigger melalui aplikasi tersebut.
+  
   c. tema aplikasi bebas.
-3. Upload project yang sudah di buat ke repositori Github.
+  
+4. Upload project yang sudah di buat ke repositori Github.
   a. Repositori Harus di beri judul, deskripsi anggota kelompok, deskripsi project.
+
   b. Tambahkan deskripsi link youtube tutorial pada repositori (lihat point. 4).
+  
 c. Tambahkan Keterangan cara menggunakan aplikasi pada halaman repositori.
-4. buatlah video tutorial coding pembuatan aplikasi tersebut dengan durasi video maksimum 15 menit.
-5. link github dan video youtube harus di kumpulkan via aplikasi sinau pada saat uas (tidak ada uas tertulis).
-6. bagi yang tidak mengumpulkan atau terlambat mengumpulkan dengan berbagai alasan, nilai uas dihitung nol dan tidak lulus mata kuliah.
+6. buatlah video tutorial coding pembuatan aplikasi tersebut dengan durasi video maksimum 15 menit.
+7. link github dan video youtube harus di kumpulkan via aplikasi sinau pada saat uas (tidak ada uas tertulis).
+8. bagi yang tidak mengumpulkan atau terlambat mengumpulkan dengan berbagai alasan, nilai uas dihitung nol dan tidak lulus mata kuliah.
 
   "https://youtu.be/ne-VM4zVzs8?si=yrdW54difJ4cD07e" Membuat Website Dengan PHP dan MySQL.
   

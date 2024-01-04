@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Company Profile</title>
+    <title>UNISSULA</title>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -43,19 +43,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Admin Halaman</a>
+                            <a class="nav-link active" aria-current="page" href="halaman.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Admin Tutors</a>
+                            <a class="nav-link" href="">Mahasiswa Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Admin Partners </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Admin Contacts </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Logout>></a>
+                            <a class="nav-link" href="mahasiswa_keluar.php">Mahasiswa Keluar</a>
                         </li>
                     </ul>
                 </div>

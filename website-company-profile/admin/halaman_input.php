@@ -1,8 +1,8 @@
 <?php include("inc_header.php") ?>
 <?php
-$judul = "";
-$kutipan = "";
-$isi = "";
+$nama = "";
+$ip = "";
+$id_prodi = "";
 $error = "";
 $sukses = "";
 
@@ -13,45 +13,45 @@ if(isset($_GET['id'])){
 }
 
 if($id !=""){
-    $sql1 = "select * from halaman where id = '$id'";
+    $sql1 = "SELECT * FROM mahasiswa WHERE id_mhs = '$id'";
     $sq1 = mysqli_query($koneksi,$sql1);
     $r1 = mysqli_fetch_array($sq1);
-    $judul = $r1['judul'];
-    $kutipan = $r1['kutipan'];
-    $isi = $r1['isi'];
+    $nama = $r1['Nama'];
+    $ip = $r1['Ip'];
+    $id_prodi = $r1['id_prodi'];
 
-    if($isi == ''){
+    if($nama == ''){
         $error = "Data tidak ditemukan";
     }
 }
 
 if (isset($_POST['simpan'])) {
-    $judul = $_POST['judul'];
-    $isi = $_POST['isi'];
-    $kutipan = $_POST['kutipan'];
+    $nama = $_POST['nama'];
+    $ip = $_POST['ip'];
+    $id_prodi = $_POST['id_prodi'];
 
-    if ($judul == '' or $isi == '') {
-        $error = "Silahkan masukkan semua data yakni adalah data isi dan judul.";
+    if ($nama == '' or $ip == '' or $id_prodi == '') {
+        $error = "Silahkan masukkan semua data yakni adalah data nama, IP, dan ID Prodi.";
     }
     if (empty($error)) {
-        if($id != ""){
-            $sql1 = "update halaman set judul = '$judul', kutipan='$kutipan', isi='$isi', tgl_isi=now() where id = '$id'"; 
-        }else{
-            $sql1 = "insert into halaman(judul, kutipan, isi) values ('$judul','$kutipan','$isi')";
-        }
-        $q1 = mysqli_query($koneksi, $sql1);
-        if ($q1) {
+        try {
+            $sql1 = "INSERT INTO mahasiswa(Nama, Ip, id_prodi) VALUES ('$nama','$ip','$id_prodi')";
+            $q1 = mysqli_query($koneksi, $sql1);
+
+            if (!$q1) {
+                throw new Exception(mysqli_error($koneksi));
+            }
+
             $sukses = "Sukses memasukkan data";
-        } else {
-            $error = "Gagal memasukkan data";
+        } catch (Exception $e) {
+            $error = "Error: " . $e->getMessage();
         }
     }
 }
 ?>
-<h1>Halaman Admin Input Data</h1>
+<h1>Halaman Input Data Mahasiswa</h1>
 <div class="mb-3 row">
-    <a href="halaman.php">
-        << Kembali ke halaman admin </a>
+    <a href="halaman.php"><< Kembali ke halaman utama</a>
 </div>
 <?php
 if ($error) {
@@ -73,21 +73,21 @@ if ($sukses) {
 ?>
 <form action="" method="post">
     <div class="mb-3 row">
-        <label for="judul" class="col-sm-2 form-label">judul</label>
+        <label for="nama" class="col-sm-2 form-label">Nama</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="judul" value="<?php echo $judul ?>" name="judul">
+            <input type="text" class="form-control" id="nama" value="<?php echo $nama ?>" name="nama">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="kutipan" class="col-sm-2 form-label">kutipan</label>
+        <label for="ip" class="col-sm-2 form-label">IP</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="kutipan" value="<?php echo $kutipan ?>" name="kutipan">
+            <input type="text" class="form-control" id="ip" value="<?php echo $ip ?>" name="ip">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="isi" class="col-sm-2 form-label">isi</label>
+        <label for="id_prodi" class="col-sm-2 form-label">ID Prodi</label>
         <div class="col-sm-10">
-            <textarea name="isi" class="form-control" id="summernote"><?php echo $isi ?></textarea>
+            <input type="text" class="form-control" id="id_prodi" value="<?php echo $id_prodi ?>" name="id_prodi">
         </div>
     </div>
     <div class="mb-3 row">

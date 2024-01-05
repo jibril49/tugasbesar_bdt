@@ -1,4 +1,4 @@
-<?php include("inc_header.php") ?>
+<?php include("../inc/inc_header.php") ?>
 <?php
 $sukses = "";
 $katakunci = (isset($_GET['katakunci'])) ? $_GET['katakunci'] : "";
@@ -16,36 +16,44 @@ if ($op == 'delete') {
     }
 }
 ?>
-<h1>Halaman Utama</h1>
-<p>
-    <a href="Halaman_input.php">
-        <input type="button" class="btn btn-primary" value="Tambah Mahasiswa" />
-    </a>
-</p>
-<?php
-if ($sukses) {
-    ?>
-    <div class="alert alert-primary" role="alert">
-        <?php echo $sukses?>
-    </div>
-    <?php
-}
-?>
-<form class="row g-3" method="get">
+<h2>Halaman Utama</h2>
+
+<div class="row g-3">
     <div class="col-auto">
-        <input type="text" class="form-control" placeholder="Masukkan Kata Kunci" name="katakunci"
-            value="<?php echo $katakunci ?>" />
+        <form method="get">
+            <div class="row g-3">
+                <div class="col-auto">
+                    <input type="text" class="form-control" placeholder="Masukkan Kata Kunci" name="katakunci"
+                        value="<?php echo $katakunci ?>" />
+                </div>
+                <div class="col-auto">
+                    <input type="submit" name="cari" value="Cari Mahasiswa" class="btn btn-secondary" />
+                </div>
+            </div>
+        </form>
     </div>
     <div class="col-auto">
-        <input type="submit" name="cari" value="Cari Mahasiswa" class="btn btn-secondary" />
+        <a href="Halaman_input.php" class="btn btn-primary">
+            Tambah Mahasiswa
+        </a>
+        <?php
+        if ($sukses) {
+            ?>
+            <div class="alert alert-primary" role="alert">
+                <?php echo $sukses?>
+            </div>
+            <?php
+        }
+        ?>
     </div>
-</form>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th class="col-1">No.</th>
             <th>Nama</th>
-            <th>IP</th>
+            <th>IPK</th>
             <th>Prodi</th>
             <th class="col-2">Aksi</th>
         </tr>
@@ -118,4 +126,4 @@ if ($sukses) {
         ?>
     </ul>
 </nav>
-<?php include("inc_footer.php") ?>
+<?php include("../inc/inc_footer.php") ?>

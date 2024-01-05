@@ -16,9 +16,12 @@ if ($op == 'delete') {
     }
 }
 ?>
-<h2>Halaman Utama</h2>
 
-<div class="row g-3">
+<div class="d-flex justify-content-center mb-3">
+    <h2>Halaman Utama</h2>
+</div>
+
+<div class="d-flex justify-content-center mb-2">
     <div class="col-auto">
         <form method="get">
             <div class="row g-3">
@@ -33,17 +36,13 @@ if ($op == 'delete') {
         </form>
     </div>
     <div class="col-auto">
-        <a href="Halaman_input.php" class="btn btn-primary">
+        <a href="Halaman_input.php" class="btn btn-primary col">
             Tambah Mahasiswa
         </a>
         <?php
-        if ($sukses) {
-            ?>
-            <div class="alert alert-primary" role="alert">
-                <?php echo $sukses?>
-            </div>
-            <?php
-        }
+            if ($sukses) {
+                echo '<script>alert("' . $sukses . '");</script>';
+            }
         ?>
     </div>
 </div>
@@ -96,7 +95,7 @@ if ($op == 'delete') {
                     <?php echo $r1['nama_prodi'] ?>
                 </td>
                 <td>
-                    <a href="halaman_input.php?id=<?php echo $r1['id_mhs']?>">
+                    <a href="halaman_edit.php?id=<?php echo $r1['id_mhs']?>">
                     <span class="badge text-bg-warning">Edit</span>
                     </a>
 
@@ -126,4 +125,5 @@ if ($op == 'delete') {
         ?>
     </ul>
 </nav>
+
 <?php include("../inc/inc_footer.php") ?>

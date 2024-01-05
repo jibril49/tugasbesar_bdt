@@ -49,7 +49,7 @@ if (isset($_POST['simpan'])) {
     }
 }
 ?>
-<h2>Halaman Input Data Mahasiswa</h2>
+<h2>Input Data Mahasiswa</h2>
 <?php
 if ($error) {
     ?>

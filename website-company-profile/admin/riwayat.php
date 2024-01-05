@@ -1,4 +1,4 @@
-<?php include("inc_header.php") ?>
+<?php include("../inc/inc_header.php") ?>
 
 <h1>Alumni</h1>
 

@@ -61,6 +61,7 @@
                 <p>Jumlah Mahasiswa Seluruh : <?php echo getJumlahMahasiswaSeluruh(); ?></p>
             </li>
         </ul>
+
         <h4 class="mb-2 m-2">Rata rata IPK</h4>
         <ul>
             <li>

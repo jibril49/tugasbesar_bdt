@@ -30,11 +30,14 @@
     <div id="elektro" class="tab-pane fade">
         <?php tabelView($koneksi, "elektro"); ?>
     </div>
+    <div id="syariah" class="tab-pane fade">
+        <?php tabelView($koneksi, "syariah"); ?>
+    </div>    
     <div id="tarbiyah" class="tab-pane fade">
         <?php tabelView($koneksi, "tarbiyah"); ?>
     </div>
     <div id="akademik" class="tab-pane fade">
-        <h4 class="mb-2">Jumlah Mahasiswa</h4>
+        <h4 class="mb-2 m-2">Jumlah Mahasiswa</h4>
         <ul>
             <li>
                 <p>Jumlah Mahasiswa Prodi Informatika : <?php echo getJumlahMahasiswaProdi(4); ?></p>
@@ -58,7 +61,7 @@
                 <p>Jumlah Mahasiswa Seluruh : <?php echo getJumlahMahasiswaSeluruh(); ?></p>
             </li>
         </ul>
-        <h4 class="mb-2">Rata rata IPK</h4>
+        <h4 class="mb-2 m-2">Rata rata IPK</h4>
         <ul>
             <li>
                 <p>Rata rata IPK Seluruh Mahasiswa : <?php echo getRataIPKSeluruhMahasiswa(); ?></p>

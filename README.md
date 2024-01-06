@@ -26,6 +26,7 @@ aplikasi yang di butuhkan
 CRUD
 
 1. trigger
+
 before update ipk
 tabel insert update delete diriwayat (log)
 [id, tabel, aksi, tanggal(now())]
@@ -37,12 +38,16 @@ tabel perubahan mahasiswa
 [id, nama, aksi, tanggal]
 
 2. sf
+
 rata-rata nilai ipk tiap prodi/ tiap fakultas/ seluruh mahasiswa
 jumlah mahasiswa tiap prodi
 
 3. sp
+
 perubahan tabel mahasiswa(in nama_mhs, in aksi)
 
 4. view
+
 tabel mahasiswa tiap prodi
+
 note: simpan website-company-profile folder pada htcdocs folder di direktori "C:\xampp\htdocs" dan buka folder code compiler yang anda gunakan di website-company-profile yang telah anda download

@@ -1,5 +1,6 @@
-# tugasbesar_bdt
-ujian tugas akhir semester
+# Tugas Akhir Basis Data Terapan
+
+## ujian tugas akhir semester
 
 1. buatlah kelompok dengan jumlah maksimum 5 orang
 2. Buatlah aplikasi Web (PHP) yang terhubung ke database MySQL. di dalam aplikasi harus ada
@@ -16,14 +17,31 @@ c. Tambahkan Keterangan cara menggunakan aplikasi pada halaman repositori
 
   "https://youtu.be/ne-VM4zVzs8?si=yrdW54difJ4cD07e" Membuat Website Dengan PHP dan MySQL.
   "https://getbootstrap.com/docs/5.0/getting-started/introduction/" Bootstrap 5.
-  "https://summernote.org/getting-started/" Summernote 4.
-  "https://stackoverflow.com/questions/21628222/summernote-image-upload" Summernote image upload.
-  "https://github.com/apih/summernote-image-list" Summernote image list icon.
   
 aplikasi yang di butuhkan
 1. xampp
 2. Mysql
 3. Visual studio code
 4. code runner (.PHP, .JS, .CSS)
+
+# Fungsi Database
+
+- CRUD
+
+- Trigger
+  - before update ipk
+  - tabel insert update delete diriwayat (log) [id, tabel, aksi, tanggal(now())
+  - tabel perubahan ipk before update [id, nama, idmhs, id_prodi as nama_prodi, ipk_old, ipk_now, waktu(now())]
+  - tabel perubahan mahasiswa [id, nama, aksi, tanggal]
+
+- Stored Function
+  - rata-rata nilai ipk tiap prodi/ tiap fakultas/ seluruh mahasiswa
+  - jumlah mahasiswa tiap prodi
+
+- Stored Procedure
+  - perubahan tabel mahasiswa(in nama_mhs, in aksi)
+
+- View
+  - tabel mahasiswa tiap prodi
 
 note: simpan website-company-profile folder pada htcdocs folder di direktori "C:\xampp\htdocs" dan buka folder code compiler yang anda gunakan di website-company-profile yang telah anda download

@@ -3,14 +3,14 @@
 $katakunci = isset($_GET['katakunci']) ? $_GET['katakunci'] : '';
 ?>
 
-<div class="d-flex justify-content-center mb-3">
+<div class="d-flex justify-content-center mb-2">
     <h2>Halaman Utama</h2>
 </div>
 
 <div class="d-flex justify-content-center mb-2">
-    <div class="col-auto">
+    <div class="col-auto m-1">
         <form method="get">
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col-auto">
                     <input type="text" class="form-control" placeholder="Masukkan Kata Kunci" name="katakunci"
                         value="<?php echo $katakunci ?>" />
@@ -21,7 +21,7 @@ $katakunci = isset($_GET['katakunci']) ? $_GET['katakunci'] : '';
             </div>
         </form>
     </div>
-    <div class="col-auto">
+    <div class="col-auto m-1">
         <a href="Halaman_input.php" class="btn btn-primary col">
             Tambah Mahasiswa
         </a>
@@ -31,10 +31,8 @@ $katakunci = isset($_GET['katakunci']) ? $_GET['katakunci'] : '';
 <?php
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $per_halaman = 10;
-
 readTabelMahasiswa($koneksi, $katakunci, $page, $per_halaman);
 ?>
-
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">

@@ -8,8 +8,8 @@ function tabelView($koneksi, $prodi)
     $query = mysqli_query($koneksi, $sql);
     $nomor = 1;
     ?>
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-hover">
+        <thead class="table-dark">
             <tr>
                 <th class="col-1">No.</th>
                 <th>Nama</th>
@@ -39,8 +39,8 @@ function tabelRiwayatSemua($koneksi)
     $query = mysqli_query($koneksi, $sql);
     $nomor = 1;
     ?>
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-hover">
+        <thead class="table-light">
             <tr>
                 <th class="col-1">No.</th>
                 <th>Tabel</th>
@@ -72,8 +72,8 @@ function tabelRiwayatIpk($koneksi)
     $query = mysqli_query($koneksi, $sql);
     $nomor = 1;
     ?>
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-hover">
+        <thead class="table-light">
             <tr>
                 <th class="col-1">No.</th>
                 <th>Nama</th>
@@ -111,8 +111,8 @@ function tabelRiwayatMahasiswa($koneksi)
     $query = mysqli_query($koneksi, $sql);
     $nomor = 1;
     ?>
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-hover">
+        <thead class="table-light">
             <tr>
                 <th class="col-1">No.</th>
                 <th>Nama Mahasiswa</th>
@@ -137,9 +137,7 @@ function tabelRiwayatMahasiswa($koneksi)
     </table>
 <?php
 }
-?>
 
-<?php
 function getRataIPKProdi($prodiId) {
     global $koneksi;
     $sql = "SELECT RataNilaiIPKProdi($prodiId) AS RataIPKProdi";
@@ -194,7 +192,7 @@ function hapusData($koneksi)
     $sukses = "";
 
     if ($op == 'delete') {
-        $id = $_GET['id'];
+        $id = mysqli_real_escape_string($koneksi, $_GET['id']);
         $sql1 = "DELETE FROM mahasiswa WHERE id_mhs = '$id'";
         $q1 = mysqli_query($koneksi, $sql1);
         if ($q1) {
@@ -234,10 +232,12 @@ function readTabelMahasiswa($koneksi, $katakunci, $page, $per_halaman)
             <?php echo $sukses; ?>
         </div>
         <?php
+        $query = mysqli_query($koneksi, $sql);
     }
     ?>
-    <table class="table table-striped">
-        <thead>
+    
+    <table class="table table-hover">
+        <thead class="table-light">
             <tr>
                 <th class="col-1">No.</th>
                 <th>Nama</th>
@@ -256,12 +256,12 @@ function readTabelMahasiswa($koneksi, $katakunci, $page, $per_halaman)
                     <td><?php echo $row['ip'] ?></td>
                     <td><?php echo $row['nama_prodi'] ?></td>
                     <td>
-                        <a href="halaman_edit.php?id=<?php echo $row['id_mhs']?>">
-                            <span class="badge text-bg-warning">Edit</span>
+                        <a class="m-1" href="halaman_edit.php?id=<?php echo $row['id_mhs']?>">
+                            <span class="badge text-bg-warning"> Edit </span>
                         </a>
-                        <a href="halaman.php?op=delete&id=<?php echo $row['id_mhs'] ?>"
+                        <a class="m-1" href="halaman.php?op=delete&id=<?php echo $row['id_mhs'] ?>"
                             onclick="return confirm('apakah yakin mau hapus data?')">
-                            <span class="badge text-bg-danger">Delete</span>
+                            <span class="badge text-bg-danger"> Delete </span>
                         </a>
                     </td>
                 </tr>
@@ -273,15 +273,33 @@ function readTabelMahasiswa($koneksi, $katakunci, $page, $per_halaman)
     <?php
 }
 
-function getDataById($koneksi, $id) {
+function getDataById($koneksi, $id)
+{
+    $id = mysqli_real_escape_string($koneksi, $id);
     $sql = "SELECT * FROM mahasiswa WHERE id_mhs = '$id'";
     $result = mysqli_query($koneksi, $sql);
     return mysqli_fetch_array($result);
 }
 
-function insertMahasiswa($koneksi, $nama, $ip, $id_prodi) {
-    $sql = "INSERT INTO mahasiswa(Nama, Ip, id_prodi) VALUES ('$nama','$ip','$id_prodi')";
-    return mysqli_query($koneksi, $sql);
+function insertOrUpdateMahasiswa($koneksi, $id, $nama, $ip, $id_prodi)
+{
+    $nama = mysqli_real_escape_string($koneksi, $nama);
+    $ip = mysqli_real_escape_string($koneksi, $ip);
+    $id_prodi = mysqli_real_escape_string($koneksi, $id_prodi);
+
+    if ($id != "") {
+        $sql = "UPDATE mahasiswa SET Nama='$nama', Ip='$ip', id_prodi='$id_prodi' WHERE id_mhs='$id'";
+    } else {
+        $sql = "INSERT INTO mahasiswa(Nama, Ip, id_prodi) VALUES ('$nama','$ip','$id_prodi')";
+    }
+
+    $q = mysqli_query($koneksi, $sql);
+
+    if (!$q) {
+        throw new Exception(mysqli_error($koneksi));
+    }
+
+    return ($id != "") ? "Sukses mengubah data" : "Sukses memasukkan data";
 }
 
 $nama = "";
@@ -304,6 +322,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['simpan'])) {
+    $id = (isset($_POST['id'])) ? $_POST['id'] : "";
     $nama = $_POST['nama'];
     $ip = $_POST['ip'];
     $id_prodi = $_POST['id_prodi'];
@@ -314,72 +333,11 @@ if (isset($_POST['simpan'])) {
 
     if (empty($error)) {
         try {
-            $q1 = insertMahasiswa($koneksi, $nama, $ip, $id_prodi);
-
-            if (!$q1) {
-                throw new Exception(mysqli_error($koneksi));
-            }
-
-            $sukses = "Sukses memasukkan data";
+            $sukses = insertOrUpdateMahasiswa($koneksi, $id, $nama, $ip, $id_prodi);
         } catch (Exception $e) {
             $error = "Error: " . $e->getMessage();
         }
     }
 }
 
-function editData($koneksi) {
-    $nama = "";
-    $ip = "";
-    $id_prodi = "";
-    $error = "";
-    $sukses = "";
-
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    } else {
-        $id = "";
-    }
-
-    if($id != ""){
-        $sql1 = "SELECT * FROM mahasiswa WHERE id_mhs = '$id'";
-        $sq1 = mysqli_query($koneksi, $sql1);
-        $r1 = mysqli_fetch_array($sq1);
-        $nama = $r1['Nama'];
-        $ip = $r1['Ip'];
-        $id_prodi = $r1['id_prodi'];
-
-        if($nama == ''){
-            $error = "Data tidak ditemukan";
-        }
-    }
-
-    if (isset($_POST['simpan'])) {
-        $nama = $_POST['nama'];
-        $ip = $_POST['ip'];
-        $id_prodi = $_POST['id_prodi'];
-
-        if ($nama == '' or $ip == '' or $id_prodi == '') {
-            $error = "Silahkan masukkan semua data yakni adalah data nama, IPK, dan ID Prodi.";
-        }
-        if (empty($error)) {
-            try {
-                if ($id != "") {
-                    $sql1 = "UPDATE mahasiswa SET Nama='$nama', Ip='$ip', id_prodi='$id_prodi' WHERE id_mhs='$id'";
-                } else {
-                    $sql1 = "INSERT INTO mahasiswa(Nama, Ip, id_prodi) VALUES ('$nama','$ip','$id_prodi')";
-                }
-
-                $q1 = mysqli_query($koneksi, $sql1);
-
-                if (!$q1) {
-                    throw new Exception(mysqli_error($koneksi));
-                }
-
-                $sukses = "Sukses merubah data";
-            } catch (Exception $e) {
-                $error = "Error: " . $e->getMessage();
-            }
-        }
-    }
-}
 ?>

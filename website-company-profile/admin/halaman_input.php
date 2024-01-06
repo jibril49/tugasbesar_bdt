@@ -1,5 +1,11 @@
 <?php include("../inc/inc_header.php"); 
-include("../inc/function.php");
+include("../inc/function.php"); ?>
+
+<div class="d-flex justify-content-center mb-2">
+    <h2>Input Data Mahasiswa</h2>
+</div>
+
+<?php
 if ($error) {
     ?>
     <div class="alert alert-danger" role="alert">
@@ -17,10 +23,6 @@ if ($sukses) {
     <?php
 }
 ?>
-
-<div class="d-flex justify-content-center mb-2">
-    <h2>Input Data Mahasiswa</h2>
-</div>
 
 <form action="" method="post">
     <div class="mb-3 row">

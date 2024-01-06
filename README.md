@@ -25,7 +25,7 @@ aplikasi yang di butuhkan
 
 CRUD
 
-1. trigger
+1. Trigger
 
 before update ipk
 tabel insert update delete diriwayat (log)
@@ -37,12 +37,12 @@ tabel perubahan ipk before update
 tabel perubahan mahasiswa
 [id, nama, aksi, tanggal]
 
-2. sf
+2. Stored Function
 
 rata-rata nilai ipk tiap prodi/ tiap fakultas/ seluruh mahasiswa
 jumlah mahasiswa tiap prodi
 
-3. sp
+3. Stored Procedure
 
 perubahan tabel mahasiswa(in nama_mhs, in aksi)
 

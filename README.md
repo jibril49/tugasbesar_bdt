@@ -16,9 +16,6 @@ c. Tambahkan Keterangan cara menggunakan aplikasi pada halaman repositori
 
   "https://youtu.be/ne-VM4zVzs8?si=yrdW54difJ4cD07e" Membuat Website Dengan PHP dan MySQL.
   "https://getbootstrap.com/docs/5.0/getting-started/introduction/" Bootstrap 5.
-  "https://summernote.org/getting-started/" Summernote 4.
-  "https://stackoverflow.com/questions/21628222/summernote-image-upload" Summernote image upload.
-  "https://github.com/apih/summernote-image-list" Summernote image list icon.
   
 aplikasi yang di butuhkan
 1. xampp

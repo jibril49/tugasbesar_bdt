@@ -1,5 +1,6 @@
-# tugasbesar_bdt
-ujian tugas akhir semester
+# Tugas Akhir Basis Data Terapan
+
+## ujian tugas akhir semester
 
 1. buatlah kelompok dengan jumlah maksimum 5 orang
 2. Buatlah aplikasi Web (PHP) yang terhubung ke database MySQL. di dalam aplikasi harus ada
@@ -23,31 +24,24 @@ aplikasi yang di butuhkan
 3. Visual studio code
 4. code runner (.PHP, .JS, .CSS)
 
-CRUD
+# Fungsi Database
 
-1. Trigger
+- CRUD
 
-before update ipk
-tabel insert update delete diriwayat (log)
-[id, tabel, aksi, tanggal(now())]
+- Trigger
+  - before update ipk
+  - tabel insert update delete diriwayat (log) [id, tabel, aksi, tanggal(now())
+  - tabel perubahan ipk before update [id, nama, idmhs, id_prodi as nama_prodi, ipk_old, ipk_now, waktu(now())]
+  - tabel perubahan mahasiswa [id, nama, aksi, tanggal]
 
-tabel perubahan ipk before update
-[id, nama, idmhs, id_prodi as nama_prodi, ipk_old, ipk_now, waktu(now())]
+- Stored Function
+  - rata-rata nilai ipk tiap prodi/ tiap fakultas/ seluruh mahasiswa
+  - jumlah mahasiswa tiap prodi
 
-tabel perubahan mahasiswa
-[id, nama, aksi, tanggal]
+- Stored Procedure
+  - perubahan tabel mahasiswa(in nama_mhs, in aksi)
 
-2. Stored Function
-
-rata-rata nilai ipk tiap prodi/ tiap fakultas/ seluruh mahasiswa
-jumlah mahasiswa tiap prodi
-
-3. Stored Procedure
-
-perubahan tabel mahasiswa(in nama_mhs, in aksi)
-
-4. view
-
-tabel mahasiswa tiap prodi
+- View
+  - tabel mahasiswa tiap prodi
 
 note: simpan website-company-profile folder pada htcdocs folder di direktori "C:\xampp\htdocs" dan buka folder code compiler yang anda gunakan di website-company-profile yang telah anda download

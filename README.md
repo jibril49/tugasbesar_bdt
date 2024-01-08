@@ -1,6 +1,6 @@
 # Tugas Akhir Basis Data Terapan
 
-## ujian tugas akhir semester
+## Pembuatan Halaman Admin Nilai IPK Unissula
 
 1. buatlah kelompok dengan jumlah maksimum 5 orang
 2. Buatlah aplikasi Web (PHP) yang terhubung ke database MySQL. di dalam aplikasi harus ada

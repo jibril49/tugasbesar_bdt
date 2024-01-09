@@ -17,7 +17,7 @@
 
  - "https://youtu.be/ne-VM4zVzs8?si=yrdW54difJ4cD07e" Membuat Website Dengan PHP dan MySQL.
  - "https://getbootstrap.com/docs/5.0/getting-started/introduction/" Bootstrap 5.
- - "https://youtu.be/GkFVrKqhb9k"
+ - "https://youtu.be/GkFVrKqhb9k" video tugas
   
 aplikasi yang di butuhkan
 1. xampp

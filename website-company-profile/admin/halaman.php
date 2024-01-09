@@ -1,5 +1,4 @@
 <?php include("../inc/inc_header.php") ?>
-
 <?php include("../inc/function.php"); 
 $katakunci = isset($_GET['katakunci']) ? $_GET['katakunci'] : '';
 ?>
@@ -7,6 +6,7 @@ $katakunci = isset($_GET['katakunci']) ? $_GET['katakunci'] : '';
 <div class="d-flex justify-content-center mb-2">
     <h2>Halaman Utama</h2>
 </div>
+
 <div class="d-flex justify-content-center mb-2">
     <div class="col-auto m-1">
         <form method="get">

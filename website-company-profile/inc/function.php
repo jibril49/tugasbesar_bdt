@@ -1,4 +1,5 @@
 <?php
+
 include("inc_koneksi.php");
 
 function tabelView($koneksi, $prodi)
@@ -31,6 +32,7 @@ function tabelView($koneksi, $prodi)
     </table>
 <?php
 }
+
 function tabelRiwayatSemua($koneksi)
 {
     $sql = "SELECT * FROM riwayat";
@@ -135,6 +137,7 @@ function tabelRiwayatMahasiswa($koneksi)
     </table>
 <?php
 }
+
 function getRataIPKProdi($prodiId) {
     global $koneksi;
     $sql = "SELECT RataNilaiIPKProdi($prodiId) AS RataIPKProdi";
@@ -182,6 +185,7 @@ function getJumlahMahasiswaSeluruh() {
     $row = mysqli_fetch_assoc($result);
     return $row["JumlahMahasiswaSeluruh"];
 }
+
 function hapusData($koneksi)
 {
     $op = (isset($_GET['op'])) ? $_GET['op'] : " ";
@@ -335,4 +339,5 @@ if (isset($_POST['simpan'])) {
         }
     }
 }
+
 ?>

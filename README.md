@@ -72,6 +72,7 @@ aplikasi yang di butuhkan
   - habib baihaqi arrozaq
   - Marwan hadid
   - jibril amjad taqiudin
+  - Moh Rian Hadi KH
 
 # Cara menggunakan Repositori
 - Download
